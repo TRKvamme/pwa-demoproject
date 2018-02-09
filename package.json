@@ -1,5 +1,6 @@
 {
   "name": "pwa-twibbler",
+  "homepage": "https://TRKvamme.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
