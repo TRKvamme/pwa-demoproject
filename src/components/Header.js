@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Header extends Component {
 
   static propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string.isRequired
   };
 
   render() {

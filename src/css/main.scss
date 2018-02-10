@@ -21,6 +21,7 @@
 */
 @charset "UTF-8";
 @import "partials/header";
+@import "partials/textbox";
 
 
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
@@ -60,4 +61,6 @@ img {
   min-height: 100vh;
   max-height: 100vh;
   width: 100vw;
+  display: grid;
+  grid-template-rows: 10vh minmax(80px,90vh);
 }

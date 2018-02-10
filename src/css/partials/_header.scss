@@ -10,13 +10,12 @@ $bg-color: #D0FFb7;
 
 header {
   background-color: $theme-color;
-  display: flex;
   max-height: 10vh;
   h1 {
+    display: block;
     color: $text-color;
     text-align: center;
     font-family: 'Pacifico', cursive;
-    float: left;
   }
   img {
     padding: 10px;

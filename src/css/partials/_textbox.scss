@@ -1,0 +1,56 @@
+// main: ../main.scss
+
+$text-color: #2E282A;
+$theme-color: #76B041;
+$theme-color2: #4C7553;
+$bg-color: #D0FFb7;
+
+@mixin font-style($size) {
+font-family: 'Roboto', sans;
+font-size: $size;
+color: $text-color;
+}
+
+main {
+  height: inherit;
+  display: grid;
+  grid-template-rows: 1fr 10vh;
+}
+  .sender {
+    @include font-style(25px);
+    font-weight: bold;
+  }
+  .message-text {
+    @include font-style(16px);
+  }
+  .active {
+    text-align: right;
+  }
+  .message {
+    
+  }
+
+
+  .message-form {
+    background-color: $theme-color;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: minmax(150px,1fr) minmax(1px,150px);
+    input[type="text"] {
+      @include font-style(20px);
+      background-color: $bg-color;
+      border: 1px $theme-color2 solid;
+      grid-row: 1 /2;
+      margin-right: 2px;
+      border-radius: 5px;
+    }
+    button {
+      @include font-style(20px);
+      background-color: $theme-color2;
+      border: none;
+      padding: 2px 30px;
+      max-width: 150px;
+      grid-row: 1 /2;
+      border-radius: 5px;
+    }
+  }
