@@ -1,8 +1,33 @@
 // main: ../main.scss
-header {
-  background-color: lightblue;
 
+//color scheme:
+
+$text-color: #2E282A;
+$theme-color: #76B041;
+$theme-color2: #4C7553;
+$bg-color: #D0FFb7;
+
+
+header {
+  background-color: $theme-color;
+  display: flex;
+  max-height: 10vh;
   h1 {
+    color: $text-color;
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    float: left;
+  }
+  img {
+    padding: 10px;
+    display: block;
+    object-fit: contain;
+    max-width: 64px;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+  ul {
+    display: flex;
   }
 }

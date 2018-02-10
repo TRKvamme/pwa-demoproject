@@ -11,7 +11,16 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1>{this.props.title}</h1>
+        <ul>
+          <li>
+            <img
+              className="logo"
+              src="img/icons/android-chrome-192x192.png"
+              alt="Twibbler logo, A pear."
+            />
+          </li>
+          <li><h1>{this.props.title}</h1></li>
+        </ul>
       </header>
     );
   }

@@ -23,6 +23,14 @@
 @import "partials/header";
 
 
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+
+$text-color: #2E282A;
+$theme-color: #76B041;
+$theme-color2: #4C7553;
+$bg-color: #D0FFb7;
+
 // css reset
 html {
   box-sizing: border-box;
@@ -46,4 +54,10 @@ ol, ul {
 img {
   max-width: 100%;
   height: auto;
+}
+.container {
+  background-color: $bg-color;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
 }
