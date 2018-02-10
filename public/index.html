@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Viewport for responsive web design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/img/icons/favicon.ico">
+    <!-- Instruct Internet Explorer to use its latest rendering engine -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- iOS specific configurations  -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Twibbler">
-    <link rel="apple-touch-startup-image" href="react-512.png">
-    <link rel="apple-touch-icon" href="react-192.png">
+    <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/img/icons/react-512.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/img/icons/react-512.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Document Title -->
     <title>Twibbler</title>
+    <!-- Meta Description -->
+    <meta name="description" content="Demonstrating a Progressive web app">
+    <!-- Only URL we want to show up on searches -->
+    <link rel="canonical" href="https://TRKvamme.github.io/pwa-demoproject">
   </head>
+
   <body>
+    <!-- Communicates  -->
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <!-- Application root-->
     <div id="root"></div>
   </body>
 </html>
