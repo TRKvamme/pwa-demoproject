@@ -16,6 +16,9 @@ main {
   display: grid;
   grid-template-rows: 1fr 10vh;
 }
+.message-field {
+  padding: 20px;
+}
   .sender {
     @include font-style(25px);
     font-weight: bold;
@@ -27,7 +30,7 @@ main {
     text-align: right;
   }
   .message {
-    
+
   }
 
 
@@ -35,7 +38,7 @@ main {
     background-color: $theme-color;
     padding: 20px;
     display: grid;
-    grid-template-columns: minmax(150px,1fr) minmax(1px,150px);
+    grid-template-columns: minmax(150px,1fr) minmax(1px,100px);
     input[type="text"] {
       @include font-style(20px);
       background-color: $bg-color;
@@ -49,7 +52,7 @@ main {
       background-color: $theme-color2;
       border: none;
       padding: 2px 30px;
-      max-width: 150px;
+      max-width: 100px;
       grid-row: 1 /2;
       border-radius: 5px;
     }
