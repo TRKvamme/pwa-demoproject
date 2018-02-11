@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class MessageForm extends Component {
 
   static propTypes = {
@@ -26,7 +25,7 @@ class MessageForm extends Component {
   render() {
     return (
       <div className="message-form">
-        <input onChange={this.onChange} type="text" value={this.state.message}/>
+        <input onChange={this.onChange} type="text" value={this.state.message} />
         <button onClick={() => this.props.handleClick(this.state.message)}>
           Send
         </button>
