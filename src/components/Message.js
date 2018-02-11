@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 
 class Message extends Component {
 
   static propTypes = {
     sender: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired
+    message: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired
   };
 
   render() {
-    const owner = (this.props.sender === 'Bill');
+    const owner = (this.props.sender === this.props.user);
     const sender = 'sender';
     const message = 'messagetext';
     return (
@@ -27,4 +29,9 @@ class Message extends Component {
 
 }
 
-export default Message;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+export default connect(mapStateToProps,null)(Message);

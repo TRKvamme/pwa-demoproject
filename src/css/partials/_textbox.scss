@@ -5,26 +5,30 @@ $theme-color: #76B041;
 $theme-color2: #4C7553;
 $bg-color: #D0FFb7;
 
-@mixin font-style($size) {
+@mixin font-style($size, $color) {
 font-family: 'Roboto', sans;
 font-size: $size;
-color: $text-color;
+color: $color;
+}
+ul {
+  max-height: 100%;
 }
 
 main {
-  height: inherit;
+  max-height: inherit;
   display: grid;
-  grid-template-rows: 1fr 10vh;
+  grid-template-rows: (80vh) minmax(10vh,80px);
 }
 .message-field {
   padding: 20px;
+  overflow-y: auto;
 }
   .sender {
-    @include font-style(25px);
+    @include font-style(25px, #4C7553);
     font-weight: bold;
   }
   .message-text {
-    @include font-style(16px);
+    @include font-style(16px, #4C7553);
   }
   .active {
     text-align: right;
@@ -32,15 +36,13 @@ main {
   .message {
 
   }
-
-
   .message-form {
     background-color: $theme-color;
     padding: 20px;
     display: grid;
     grid-template-columns: minmax(150px,1fr) minmax(1px,100px);
     input[type="text"] {
-      @include font-style(20px);
+      @include font-style(20px, $text-color);
       background-color: $bg-color;
       border: 1px $theme-color2 solid;
       grid-row: 1 /2;
@@ -48,7 +50,7 @@ main {
       border-radius: 5px;
     }
     button {
-      @include font-style(20px);
+      @include font-style(20px, $bg-color);
       background-color: $theme-color2;
       border: none;
       padding: 2px 30px;

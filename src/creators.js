@@ -4,8 +4,12 @@
 //     const data7 = await axios.get('/api/admin/comany/applications')
 //     dispatch({ type: 'SET_COMPANYAPPLICATIONS', data: data7.data })
 // }
+import axios from 'axios';
+
+const url = '' //server api url
 
 export const addPost = async (dispatch, post) => {
     // TODO Implement axios to send requests to server (see example over)
+
     dispatch({ type: 'ADD_POST', data: post })
 }
