@@ -13,13 +13,18 @@ class MessageBox extends Component {
     super(props);
 
     this.state = {
-      messages: this.props.messages
+      messages: this.props.messages,
+      user: 'Bill'
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    
+    let newmessages = this.state.messages
+    newmessages.push({sender:this.state.user, message: e})
+    this.setState({
+        messages:newmessages
+    });
   }
 
   render() {
@@ -34,7 +39,7 @@ class MessageBox extends Component {
           {messagelist}
         </ul>
         </section>
-        <MessageForm />
+        <MessageForm handleClick={this.handleClick}/>
       </main>
     );
   }
