@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import { addPost } from '../creators'
+
 class MessageForm extends Component {
-
-  static propTypes = {
-    handleClick: PropTypes.function
-
-  };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      message: ''
+      post: {
+        user: props.user,
+        message: ''
+      }
     };
+
     this.onChange = this.onChange.bind(this);
   }
+
   onChange(e) {
     this.setState({
-      message: e.target.value
+      post: {
+        user: this.props.user,
+        message: e.target.value
+      }
     });
   }
 
@@ -26,7 +32,7 @@ class MessageForm extends Component {
     return (
       <div className="message-form">
         <input onChange={this.onChange} type="text" value={this.state.message} />
-        <button onClick={() => this.props.handleClick(this.state.message)}>
+        <button onClick={() => this.props.addPost(this.state.post)}>
           Send
         </button>
       </div>
@@ -35,4 +41,14 @@ class MessageForm extends Component {
 
 }
 
-export default MessageForm;
+MessageForm.propTypes = {
+  addPost: PropTypes.function,
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addPost: (post) => addPost(dispatch, post),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MessageForm);

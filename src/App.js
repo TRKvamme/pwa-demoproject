@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header title="Twibbler" />
-        <MessageBox messages={this.props.messages} />
+        <MessageBox user={this.props.user} messages={this.props.messages} />
       </div>
     );
   }
@@ -17,8 +17,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
+    user: state.user,
     messages: state.messages,
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, null)(App);

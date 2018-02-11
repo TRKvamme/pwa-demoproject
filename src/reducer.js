@@ -1,23 +1,29 @@
 const initialState = {
     // Hardcoded messages
+    user: 'Bill',
     messages: [{
-        sender: 'Steve',
+        user: 'Steve',
         message: 'Hello!'
     },
     {
-        sender: 'Bill',
+        user: 'Bill',
         message: 'Hi Steve, how are you?'
     },
     {
-        sender: 'Steve',
+        user: 'Steve',
         message: 'Dead.'
     }],
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'POST_MESSAGE':
-            return Object.assign({}, state, { messages: action.data })
+        case 'ADD_POST':
+            return Object.assign({}, state, {
+                messages: [
+                    ...state.messages,
+                    action.data
+                ]
+            })
 
         default:
             return state;
