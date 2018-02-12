@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://tkvamme.tk/twibblerapi/api/messages' //server api url
+const url = 'https://tkvamme.tk/twibblerapi/api/messages' //server api url
 
 export const addPost = (dispatch, post) => {
     axios.post(url, {
