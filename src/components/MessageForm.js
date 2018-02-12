@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import { addPost } from '../creators'
 
@@ -10,10 +9,7 @@ class MessageForm extends Component {
     super(props);
 
     this.state = {
-      post: {
-        user: props.user,
-        message: ''
-      }
+      message: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -21,18 +17,27 @@ class MessageForm extends Component {
 
   onChange(e) {
     this.setState({
-      post: {
-        user: this.props.user,
-        message: e.target.value
-      }
+      message: e.target.value
     });
+  }
+
+  getMessage() {
+    return {
+      sender: this.props.user,
+      message: this.state.message
+    }
+  }
+
+  postMessage() {
+    this.setState({ message: '' })
+    this.props.addPost(this.getMessage())
   }
 
   render() {
     return (
       <div className="message-form">
         <input onChange={this.onChange} type="text" value={this.state.message} />
-        <button onClick={() => this.props.addPost(this.state.post)}>
+        <button onClick={() => this.postMessage()}>
           Send
         </button>
       </div>

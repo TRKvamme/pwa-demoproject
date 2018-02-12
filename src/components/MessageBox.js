@@ -4,10 +4,9 @@ import MessageForm from './MessageForm';
 import Message from './Message';
 
 class MessageBox extends Component {
-
   render() {
     const messagelist = this.props.messages.map((e, i) =>
-      <Message key={i} sender={e.user} message={e.message} />
+      <Message key={i} sender={e.sender} message={e.message} />
     );
 
     return (
@@ -21,7 +20,6 @@ class MessageBox extends Component {
       </main>
     );
   }
-
 }
 
 MessageBox.propTypes = {

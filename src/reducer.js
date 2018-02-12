@@ -2,15 +2,15 @@ const initialState = {
     // Hardcoded messages
     user: 'Bill',
     messages: [{
-        user: 'Steve',
+        sender: 'Steve',
         message: 'Hello!'
     },
     {
-        user: 'Bill',
+        sender: 'Bill',
         message: 'Hi Steve, how are you?'
     },
     {
-        user: 'Steve',
+        sender: 'Steve',
         message: 'Dead.'
     }],
 }

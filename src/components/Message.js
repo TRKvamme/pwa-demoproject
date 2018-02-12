@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-
 class Message extends Component {
-
-  static propTypes = {
-    sender: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired
-  };
-
   render() {
     const owner = (this.props.sender === this.props.user);
     const sender = 'sender';
@@ -18,15 +10,20 @@ class Message extends Component {
     return (
       <li>
         <div className="message">
-        <div className={(owner) ?
-        sender : sender + ' active'}>{this.props.sender}:</div>
-        <div className={(owner) ?
-        message : message + ' active'}>{this.props.message}</div>
+          <div className={(owner) ?
+            sender : sender + ' active'}>{this.props.sender}:</div>
+          <div className={(owner) ?
+            message : message + ' active'}>{this.props.message}</div>
         </div>
       </li>
     );
   }
+}
 
+Message.propTypes = {
+  sender: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired
 }
 
 function mapStateToProps(state) {
@@ -34,4 +31,5 @@ function mapStateToProps(state) {
     user: state.user
   }
 }
-export default connect(mapStateToProps,null)(Message);
+
+export default connect(mapStateToProps, null)(Message);
