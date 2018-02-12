@@ -13,7 +13,7 @@ class Message extends Component {
           <div className={(owner) ?
             sender : sender + ' active'}>{this.props.sender}:</div>
           <div className={(owner) ?
-            message : message + ' active'}>{this.props.message}</div>
+            message : message + ' active'}><p>{this.props.message}</p></div>
         </div>
       </li>
     );

@@ -6,7 +6,7 @@ $theme-color2: #4C7553;
 $bg-color: #D0FFb7;
 
 @mixin font-style($size, $color) {
-font-family: 'Roboto', sans;
+font-family: 'Roboto', sans-serif;
 font-size: $size;
 color: $color;
 }
@@ -17,23 +17,30 @@ ul {
 main {
   max-height: inherit;
   display: grid;
-  grid-template-rows: (80vh) minmax(10vh,80px);
+  grid-template-rows: 1fr minmax(10vh,64px);
 }
 .message-field {
   padding: 20px;
   overflow-y: auto;
 }
   .sender {
-    @include font-style(25px, #4C7553);
+    @include font-style(25px, $theme-color2);
     font-weight: bold;
   }
-  .message-text {
-    @include font-style(16px, #4C7553);
+  .messagetext {
+      @include font-style(16px, $theme-color2);
+      background-color: $bg-color*1.1;
+      border-radius: 10px;
+      padding: 5px;
   }
   .active {
     text-align: right;
-  }
-  .message {
+    p{
+      @include font-style(16px, $bg-color);
+      background-color: $theme-color2;
+      border-radius: 10px;
+      padding: 5px;
+    }
 
   }
   .message-form {
