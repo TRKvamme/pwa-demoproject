@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Header title="Twibbler" />
+        <Header title="Twibbler" user={this.props.user} />
         <MessageBox user={this.props.user} messages={this.props.messages} />
       </div>
     );

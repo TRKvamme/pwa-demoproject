@@ -1,6 +1,6 @@
 const initialState = {
 
-    user: 'Trond',
+    user: '',
     messages: []
 
     // Hardcoded messages

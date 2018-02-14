@@ -27,5 +27,13 @@ header {
   }
   ul {
     display: flex;
-  }
+    justify-content: space-around;
+    align-items: center;
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: $text-color;
+      font-weight: bold;
+      }
+    }
 }

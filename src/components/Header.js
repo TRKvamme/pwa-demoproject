@@ -20,6 +20,7 @@ class Header extends Component {
             />
           </li>
           <li><h1>{this.props.title}</h1></li>
+          <li><p>{this.props.user}</p></li>
         </ul>
       </header>
     );

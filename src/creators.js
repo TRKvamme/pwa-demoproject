@@ -32,7 +32,7 @@ export const getPosts = (dispatch) => {
 }
 
 export const setUsername = (dispatch) => {
-  if (localStorage){
+  if (window.localStorage){
     let user = window.localStorage.getItem("user");
     if (user) {
       dispatch({
@@ -44,7 +44,9 @@ export const setUsername = (dispatch) => {
         title: 'Username:',
         input: 'text',
         confirmButtonText: 'Submit',
+        confirmButtonColor: '#4C7553'
       }).then((result) => {
+        window.localStorage.setItem("user",result.value)
           dispatch({
             type: "SET_USERNAME",
             data: result.value
