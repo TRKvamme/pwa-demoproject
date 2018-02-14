@@ -15,3 +15,14 @@ export const addPost = (dispatch, post) => {
         }
     })
 }
+
+export const getPosts = (dispatch) => {
+    axios.get(url).then(function (res) {
+        console.log(res)
+        if (res.statusText === 'OK') {
+            dispatch({ type: 'GET_POSTS', data: res.data })
+        } else {
+            console.log('Error')
+        }
+    })
+}
