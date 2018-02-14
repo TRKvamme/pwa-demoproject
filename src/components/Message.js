@@ -8,13 +8,12 @@ class Message extends Component {
     const sender = 'sender';
     const message = 'messagetext';
     return (
-      <li>
-        <div className="message">
-          <div className={(owner) ?
-            sender : sender + ' active'}>{this.props.sender}:</div>
-          <div className={(owner) ?
-            message : message + ' active'}>{this.props.message}</div>
-        </div>
+      <li className={(!owner) ?
+        'inactive-user' : 'active-user'}>
+          <div className={(!owner) ?
+            sender + ' inactive-user' : sender + ' active-user'}>{this.props.sender}:</div>
+          <p className={(!owner) ?
+            message + ' inactive-user' : message + ' active-user'}>{this.props.message}</p>
       </li>
     );
   }

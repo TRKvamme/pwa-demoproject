@@ -1,4 +1,8 @@
 const initialState = {
+
+    user: '',
+    messages: []
+
     // Hardcoded messages
     // user: 'Bill',
     // messages: [{

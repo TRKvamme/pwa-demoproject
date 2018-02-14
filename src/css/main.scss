@@ -1,23 +1,25 @@
 /*
-  All css is done in scss, (Sass with css-like syntax.)
+  css is done in scss, (Sass with css-like syntax.)
   (https://sass-lang.com/documentation/file.SASS_REFERENCE.html)
-  To make sass-autocomplie, work properly (asuming atom text editor,
-  and already npm installed otherwise ignore this,
-  and check out https://sass-lang.com/ how to install and compile scss):
+  To make sass-autocomplie work properly: (asuming atom text editor
+  and npm installed, otherwise ignore this and check out
+   https://sass-lang.com/ on how to install and compile scss to work
+   with your setup).
    1. make sure you have node-sass installed :
         npm install -g node-sass
    2. make sure you have sass-autocomplie installed :
         apm install sass-autocomplie
-   3. start all partial file names width a _
-   4. import them to main file with: @import "path/partialname";
+   3. name partial files like this  _filename.scss
+   4. import them to main file with: @import "<path>/<partialname>";
    5. add a comment at the top of each partial linking back to
       your  main scss file :
-      // main: ../main.scss
+      // main: <relative-path>/<main-filename>.scss
       or
-      // main: ./main.scss
+      // main: ./<main-filename>.scss
       if they are in the same folder.
-   6. this should compile and leave only one <main-filename>.min.css
-      file in your root css folder whenever you save any scss file.
+   6. If set up properly it should autocompile and leave only one
+      <main-filename>.min.css file in your root css folder whenever
+      you save any scss file.
 */
 @charset "UTF-8";
 @import "partials/header";
@@ -52,15 +54,11 @@ ol, ul {
   list-style: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
 .container {
   background-color: $bg-color;
   min-height: 100vh;
   max-height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: minmax(80px,10vh) minmax(300px,1fr);
+  grid-template-rows: minmax(64px,10vh) 1fr;
 }

@@ -4,6 +4,8 @@ import MessageBox from './components/MessageBox';
 import { connect } from 'react-redux';
 
 class App extends Component {
+
+
   render() {
     return (
       <div className="container">
@@ -20,5 +22,6 @@ function mapStateToProps(state) {
     messages: state.messages,
   }
 }
+
 
 export default connect(mapStateToProps, null)(App);
