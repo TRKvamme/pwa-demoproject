@@ -1,3 +1,3 @@
-# Progressive Offline-first Web-app demo,
+# Progressive Web-app test
 
 Nothing special.
