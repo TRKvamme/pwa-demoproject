@@ -1,4 +1,3 @@
-# Progressive Offline-first Web-app with React, Serviceworker and caching.
+# Progressive Offline-first Web-app demo,
 
-Live at
-https://trkvamme.github.io/pwa-demoproject/
+Nothing special.
