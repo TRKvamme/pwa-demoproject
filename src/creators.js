@@ -1,4 +1,5 @@
 import axios from 'axios';
+import swal from 'sweetalert2';
 
 const url = 'https://tkvamme.tk/twibblerapi/api/messages' //server api url
 
@@ -28,4 +29,41 @@ export const getPosts = (dispatch) => {
             console.log('Error')
         }
     })
+}
+
+export const setUsername = (dispatch) => {
+  if (localStorage){
+    let user = window.localStorage.getItem("user");
+    if (user) {
+      dispatch({
+        type: "SET_USERNAME",
+        data: user
+      })
+    } else {
+      swal({
+        title: 'Username:',
+        input: 'text',
+        confirmButtonText: 'Submit',
+      }).then((result) => {
+          dispatch({
+            type: "SET_USERNAME",
+            data: result.value
+          })
+        }
+      )
+    }
+  } else {
+    swal({
+      title: 'Username:',
+      input: 'text',
+      confirmButtonText: 'Submit',
+    }).then((result) => {
+        dispatch({
+          type: "SET_USERNAME",
+          data: result.value
+        })
+      }
+    )
+  }
+
 }

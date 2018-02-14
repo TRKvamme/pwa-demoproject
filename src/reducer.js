@@ -1,6 +1,6 @@
 const initialState = {
 
-    user: '',
+    user: 'Trond',
     messages: []
 
     // Hardcoded messages
@@ -30,10 +30,15 @@ const reducer = (state = initialState, action) => {
             })
 
         case 'GET_POSTS':
-            return Object.assign({}, state, {
+            return  {
+                ...state,
                 messages: action.data
-            })
-
+            }
+        case 'SET_USERNAME':
+          return {
+            ...state,
+            user: action.data
+          }
         default:
             return state;
     }
