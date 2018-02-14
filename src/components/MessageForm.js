@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost } from '../creators'
+import { addPost, getPosts } from '../creators'
 
 class MessageForm extends Component {
 
@@ -10,6 +10,7 @@ class MessageForm extends Component {
     this.state = {
       message: ''
     };
+    this.props.getPosts();
     this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
@@ -69,6 +70,7 @@ MessageForm.propTypes = {
 function mapDispatchToProps(dispatch) {
   return {
     addPost: (post) => addPost(dispatch, post),
+    getPosts: () => getPosts(dispatch),
   }
 }
 

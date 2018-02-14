@@ -31,10 +31,7 @@ const reducer = (state = initialState, action) => {
 
         case 'GET_POSTS':
             return Object.assign({}, state, {
-                messages: [
-                    ...state.messages,
-                    action.data
-                ]
+                messages: action.data
             })
 
         default:
