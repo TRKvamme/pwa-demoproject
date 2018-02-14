@@ -11,7 +11,7 @@ class MessageBox extends Component {
 
     return (
       <main>
-        <section className="message-field">
+        <section className="message-field" id="message-field">
           <ul>
             {messagelist}
           </ul>
