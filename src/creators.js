@@ -11,8 +11,8 @@ export const addPost = (dispatch, post) => {
         console.log(res);
         if (res.statusText === 'OK') {
             dispatch({
-              type: 'ADD_POST',
-              data: res.data
+                type: 'ADD_POST',
+                data: res.data
             });
         } else {
             console.log('Error')
@@ -32,40 +32,40 @@ export const getPosts = (dispatch) => {
 }
 
 export const setUsername = (dispatch) => {
-  if (window.localStorage){
-    let user = window.localStorage.getItem("user");
-    if (user) {
-      dispatch({
-        type: "SET_USERNAME",
-        data: user
-      })
-    } else {
-      swal({
-        title: 'Username:',
-        input: 'text',
-        confirmButtonText: 'Submit',
-        confirmButtonColor: '#4C7553'
-      }).then((result) => {
-        window.localStorage.setItem("user",result.value)
-          dispatch({
-            type: "SET_USERNAME",
-            data: result.value
-          })
+    if (window.localStorage) {
+        let user = window.localStorage.getItem("user");
+        if (user) {
+            dispatch({
+                type: "SET_USERNAME",
+                data: user
+            })
+        } else {
+            swal({
+                title: 'Username:',
+                input: 'text',
+                confirmButtonText: 'Submit',
+                confirmButtonColor: '#4C7553'
+            }).then((result) => {
+                window.localStorage.setItem("user", result.value)
+                dispatch({
+                    type: "SET_USERNAME",
+                    data: result.value
+                })
+            }
+            )
         }
-      )
+    } else {
+        swal({
+            title: 'Username:',
+            input: 'text',
+            confirmButtonText: 'Submit',
+        }).then((result) => {
+            dispatch({
+                type: "SET_USERNAME",
+                data: result.value
+            })
+        }
+        )
     }
-  } else {
-    swal({
-      title: 'Username:',
-      input: 'text',
-      confirmButtonText: 'Submit',
-    }).then((result) => {
-        dispatch({
-          type: "SET_USERNAME",
-          data: result.value
-        })
-      }
-    )
-  }
 
 }
