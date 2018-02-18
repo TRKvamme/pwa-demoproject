@@ -21,7 +21,7 @@ class Header extends Component {
               className="logo"
               src="img/icons/android-chrome-192x192.png"
               alt="Twibbler logo, A pear."
-              onClick={this.Vibrate}
+              onClick={() => this.vibrate()}
             />
           </li>
           <li><h1>{this.props.title}</h1></li>
