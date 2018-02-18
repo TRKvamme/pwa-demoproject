@@ -10,11 +10,12 @@ class MessageForm extends Component {
     this.state = {
       message: ''
     };
-    this.props.getPosts();
+    setInterval(fuction() {
+        this.props.getPosts();
+    }, 5000);
     this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
-    // MEANSPIRITED KEYLOGGER, ROAR!
     document.addEventListener('keypress', (e) => {
       let key = e.which || e.keyCode;
       if (key === 13) {
