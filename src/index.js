@@ -8,7 +8,6 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducer.js'
 import { setUsername } from './creators'
-
 const store = createStore(reducer)
 setUsername(store.dispatch)
 

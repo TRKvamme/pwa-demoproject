@@ -8,6 +8,10 @@ class Header extends Component {
     title: PropTypes.string.isRequired
   };
 
+  vibrate() {
+    window.navigator.vibrate(200);
+  }
+
   render() {
     return (
       <header>
@@ -17,6 +21,7 @@ class Header extends Component {
               className="logo"
               src="img/icons/android-chrome-192x192.png"
               alt="Twibbler logo, A pear."
+              onClick={() => this.vibrate()}
             />
           </li>
           <li><h1>{this.props.title}</h1></li>

@@ -2,21 +2,6 @@ const initialState = {
 
     user: '',
     messages: []
-
-    // Hardcoded messages
-    // user: 'Bill',
-    // messages: [{
-    //     sender: 'Steve',
-    //     message: 'Hello!'
-    // },
-    // {
-    //     sender: 'Bill',
-    //     message: 'Hi Steve, how are you?'
-    // },
-    // {
-    //     sender: 'Steve',
-    //     message: 'Dead.'
-    // }],
 }
 
 const reducer = (state = initialState, action) => {
