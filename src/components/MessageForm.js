@@ -13,8 +13,14 @@ class MessageForm extends Component {
     this.props.getPosts();
     this.onChange = this.onChange.bind(this);
   }
-  componentWillMount() {
-    // MEANSPIRITED KEYLOGGER, ROAR!
+  componentDidMount() {
+    setInterval(() => {
+        this.props.getPosts();
+        let element = document.getElementById("message-field");
+        if (element.scrollHeight) {
+          element.scrollTop = element.scrollHeight;
+        };
+    }, 3000);
     document.addEventListener('keypress', (e) => {
       let key = e.which || e.keyCode;
       if (key === 13) {
@@ -39,10 +45,6 @@ class MessageForm extends Component {
   postMessage() {
     this.props.addPost(this.getMessage())
     this.setState({ message: '' })
-    let element = document.getElementById("message-field");
-    if (element.scrollHeight) {
-      element.scrollTop = (element.scrollHeight);
-    }
   }
 
   render() {
