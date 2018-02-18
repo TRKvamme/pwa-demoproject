@@ -51,7 +51,7 @@ main {
 }
 .message-field {
   padding: 20px;
-  overflow: auto;
+  overflow-y: auto;
   max-height: inherit;
 }
 

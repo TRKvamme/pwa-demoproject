@@ -42,8 +42,11 @@ class MessageForm extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.messages.length !== this.props.messages.length) {
-      this.scrollDown()
-      this.vibrate()
+      setTimeout(() => this.scrollDown(), 50);
+      if (this.props.messages.length > 0 &&
+        newProps.messages[newProps.messages.length - 1].sender !== this.props.user) {
+        this.vibrate()
+      }
     }
   }
 
@@ -95,7 +98,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    user: state.user
   }
 }
 
