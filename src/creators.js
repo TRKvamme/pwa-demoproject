@@ -23,6 +23,24 @@ export const addPost = (dispatch, post) => {
             console.log('Error')
         }
     })
+
+    if (post.message.toLowerCase() === 'sw?') {
+        let sw = navigator.serviceWorker
+
+        let post = {
+            sender: 'Service Worker',
+            message: "Yes! I'm alive :D"
+        }
+
+        if (typeof sw === 'undefined') {
+            post = {
+                sender: 'Service Worker',
+                message: "No, I'm not supported on this platform :("
+            }
+        }
+
+        addPost(dispatch, post)
+    }
 }
 
 export const getPosts = (dispatch) => {
