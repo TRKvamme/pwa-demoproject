@@ -1,5 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert2';
+import idbKeyval from 'idb-keyval'
 
 const url = 'https://tkvamme.tk/twibblerapi/api/messages' //server api url
 
@@ -8,12 +9,16 @@ export const addPost = (dispatch, post) => {
         sender: post.sender,
         message: post.message
     }).then(function (res) {
-        console.log(res);
         if (res.statusText === 'OK') {
+            // Send to redux
             dispatch({
                 type: 'ADD_POST',
                 data: res.data
             });
+            // Add to idb
+            idbKeyval.get('messages').then(function (m) {
+                idbKeyval.set('messages', [...m, res.data])
+            })
         } else {
             console.log('Error')
         }
@@ -22,9 +27,11 @@ export const addPost = (dispatch, post) => {
 
 export const getPosts = (dispatch) => {
     axios.get(url).then(function (res) {
-        console.log(res)
         if (res.statusText === 'OK') {
+            // Send to redux
             dispatch({ type: 'GET_POSTS', data: res.data })
+            // Add to idb
+            idbKeyval.set('messages', res.data)
         } else {
             console.log('Error')
         }
