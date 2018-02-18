@@ -12,7 +12,7 @@ class MessageForm extends Component {
     };
     setInterval(fuction() {
         this.props.getPosts();
-    }, 5000);
+    }, 3000);
     this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
