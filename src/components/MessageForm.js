@@ -75,7 +75,7 @@ class MessageForm extends Component {
           onChange={this.onChange}
           type="text"
           value={this.state.message}
-          placeholder="How are you feeling today?"
+          placeholder="Your message!"
         />
         <button onClick={() => this.postMessage()}>
           Send
