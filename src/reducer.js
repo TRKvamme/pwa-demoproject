@@ -1,7 +1,7 @@
 const initialState = {
 
     user: '',
-    messages: []
+    messages: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,15 +15,16 @@ const reducer = (state = initialState, action) => {
             })
 
         case 'GET_POSTS':
-            return  {
-                ...state,
+            return Object.assign({}, state, {
                 messages: action.data
-            }
+            })
+
         case 'SET_USERNAME':
-          return {
-            ...state,
-            user: action.data
-          }
+            return Object.assign({}, state, {
+                ...state,
+                user: action.data
+            })
+            
         default:
             return state;
     }

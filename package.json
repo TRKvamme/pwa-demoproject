@@ -15,7 +15,8 @@
     "sweetalert2": "^7.12.3"
   },
   "scripts": {
-    "start": "react-scripts build && cra-append-sw ./src/custom-sw.js && serve -s build",
+    "start": "react-scripts start",
+    "startSW": "react-scripts build && cra-append-sw ./src/custom-sw.js && serve -s build",
     "build": "react-scripts build && cra-append-sw ./src/custom-sw.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

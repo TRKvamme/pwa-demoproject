@@ -13,13 +13,21 @@ class MessageForm extends Component {
     this.props.getPosts();
     this.onChange = this.onChange.bind(this);
   }
+
+  scrollDown() {
+    let element = document.getElementById("message-field");
+    if (element.scrollHeight) {
+      element.scrollTop = element.scrollHeight;
+    };
+  }
+
+  vibrate() {
+    window.navigator.vibrate(200);
+  }
+
   componentDidMount() {
     setInterval(() => {
-        this.props.getPosts();
-        let element = document.getElementById("message-field");
-        if (element.scrollHeight) {
-          element.scrollTop = element.scrollHeight;
-        };
+      this.props.getPosts();
     }, 3000);
     document.addEventListener('keypress', (e) => {
       let key = e.which || e.keyCode;
@@ -27,6 +35,13 @@ class MessageForm extends Component {
         this.postMessage();
       }
     });
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.messages.length !== this.props.messages.length) {
+      this.scrollDown()
+      this.vibrate()
+    }
   }
 
   onChange(e) {
@@ -62,7 +77,6 @@ class MessageForm extends Component {
       </div>
     );
   }
-
 }
 
 MessageForm.propTypes = {
@@ -76,4 +90,10 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MessageForm);
+function mapStateToProps(state) {
+  return {
+    messages: state.messages
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
