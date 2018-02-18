@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducer.js'
 import { setUsername } from './creators'
-
+import addVibration from './vibrate'
 const store = createStore(reducer)
 setUsername(store.dispatch)
 
@@ -20,3 +20,5 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
+addVibration();
+//
