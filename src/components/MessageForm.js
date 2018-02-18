@@ -22,7 +22,10 @@ class MessageForm extends Component {
   }
 
   vibrate() {
-    window.navigator.vibrate(200);
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    if (navigator.vibrate) {
+      window.navigator.vibrate(200);
+    }
   }
 
   componentDidMount() {
