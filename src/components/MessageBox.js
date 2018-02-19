@@ -12,9 +12,7 @@ class MessageBox extends Component {
     return (
       <main>
         <section className="message-field" id="message-field">
-          <ul>
-            {messagelist}
-          </ul>
+          {messagelist}
         </section>
         <MessageForm user={this.props.user} />
       </main>
