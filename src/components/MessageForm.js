@@ -46,6 +46,8 @@ class MessageForm extends Component {
       if (this.props.messages.length > 0 &&
         newProps.messages[newProps.messages.length - 1].sender !== this.props.user) {
         this.vibrate()
+        var audio = new Audio('notification.mp3');
+        audio.play();
       }
     }
   }
