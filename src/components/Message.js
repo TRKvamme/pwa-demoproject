@@ -3,25 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Message extends Component {
-
+  
   render() {
-    const sender = 'sender';
-    const message = 'messagetext';
-    const prevSender = (false)
     const owner = (this.props.sender === this.props.user);
 
     return (
       <div className='message'>
         <div className={(owner) ? 'active-user' : 'inactive-user'}>
 
-          <div className="messageSender">
-            {prevSender ? '' : this.props.sender}
-          </div>
+          {(this.props.sender === this.props.prevSender) ? '' : (
+            <div className="messageSender">
+              {this.props.sender}
+            </div>
+          )}
 
           <div className="messageText">
             {this.props.message}
           </div>
-          
+
         </div>
       </div>
     );

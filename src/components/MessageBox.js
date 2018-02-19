@@ -4,10 +4,14 @@ import MessageForm from './MessageForm';
 import Message from './Message';
 
 class MessageBox extends Component {
+  
   render() {
-    const messagelist = this.props.messages.map((e, i) =>
-      <Message key={i} sender={e.sender} message={e.message} />
-    );
+    let prevSender = null
+    const messagelist = this.props.messages.map((e, i) => {
+      let msg = <Message key={i} sender={e.sender} message={e.message} prevSender={prevSender} />
+      prevSender = e.sender
+      return msg
+    });
 
     return (
       <main>

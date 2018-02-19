@@ -20,10 +20,12 @@ main {
   .message {
     width: 100%;
     overflow: hidden;
+    margin-bottom: 3px;
 
     .messageSender {
       @include font-style(25px, $theme-color2, $bg-color);
       font-weight: bold;
+      margin-top: 10px;
     }
 
     .active-user {
