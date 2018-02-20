@@ -57,6 +57,7 @@ class MessageForm extends Component {
   }
 
   notify(e) {
+    if (window.Notification) {
     Notification.requestPermission(function(result) {
         if (result === 'granted') {
           navigator.serviceWorker.ready.then((registration) => {
@@ -70,6 +71,7 @@ class MessageForm extends Component {
         }
       });
   }
+}
 
   onChange(e) {
     this.setState({
