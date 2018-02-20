@@ -58,7 +58,7 @@ class MessageForm extends Component {
 
   notify(e) {
     if (window.Notification) {
-    Notification.requestPermission(function(result) {
+      Notification.requestPermission(function (result) {
         if (result === 'granted') {
           navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification('sender', {
@@ -70,8 +70,8 @@ class MessageForm extends Component {
           });
         }
       });
+    }
   }
-}
 
   onChange(e) {
     this.setState({
@@ -87,8 +87,11 @@ class MessageForm extends Component {
   }
 
   postMessage() {
-    this.props.addPost(this.getMessage())
-    this.setState({ message: '' })
+    let msg = this.getMessage()
+    if (msg) {
+      this.props.addPost(this.getMessage())
+      this.setState({ message: '' })
+    }
   }
 
   render() {
