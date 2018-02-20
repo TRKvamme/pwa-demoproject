@@ -9,7 +9,9 @@ class MessageForm extends Component {
     this.state = {
       message: ''
     };
-    Notification.requestPermission();
+    if (window.Notification) {
+      Notification.requestPermission();
+    }
     this.props.getPosts();
     this.onChange = this.onChange.bind(this);
   }
@@ -44,6 +46,7 @@ class MessageForm extends Component {
     if (newProps.messages.length !== this.props.messages.length) {
       setTimeout(() => this.scrollDown(), 50);
       if (this.props.messages.length > 0 &&
+        newProps.messages.length > 0 &&
         newProps.messages[newProps.messages.length - 1].sender !== this.props.user) {
         this.vibrate()
         var audio = new Audio('notification.mp3');
@@ -54,31 +57,18 @@ class MessageForm extends Component {
   }
 
   notify(e) {
-    const icon = 'img/icons/android-chrome-192x192.png';
-    const options = {
-      body: e.message,
-      icon: icon
-    }
-    if (("Notification" in window)) {
-      if (Notification.permission === "granted") {
-        let notification = new Notification(e.sender,options);
-        notification.onclick = function(){
-          window.focus();
-          this.close();
-        };
-      }
-      else if (Notification.permission !== "denied") {
-        Notification.requestPermission(function (e, options,permission) {
-      if (permission === "granted") {
-        let notification = new Notification(e.sender,options);
-        notification.onclick = function(){
-          window.focus();
-          this.close();
-        };
-      }
-    });
-  }
-    }
+    Notification.requestPermission(function(result) {
+        if (result === 'granted') {
+          navigator.serviceWorker.ready.then((registration) => {
+            registration.showNotification('sender', {
+              body: 'message',
+              icon: 'img/icons/android-chrome-192x192.png',
+              vibrate: [200],
+              tag: 'vibration-sample'
+            });
+          });
+        }
+      });
   }
 
   onChange(e) {
