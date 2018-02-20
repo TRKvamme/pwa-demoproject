@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 
 class Header extends Component {
 
+  componentDidMount(){
+    document.getElementById('header').addEventListener('touchmove', (e) => {
+      e.preventDefault()
+    })
+  }
+
   static propTypes = {
     title: PropTypes.string.isRequired
   };
@@ -14,7 +20,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
+      <header id="header">
         <ul>
           <li>
             <img

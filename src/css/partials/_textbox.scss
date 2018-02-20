@@ -16,6 +16,7 @@ main {
   max-height: 90vh;
   display: grid;
   grid-template-rows: 1fr minmax(10vh,64px);
+  -webkit-overflow-scrolling: touch;
 
   .message {
     width: 100%;

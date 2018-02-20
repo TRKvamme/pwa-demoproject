@@ -31,6 +31,9 @@ class MessageForm extends Component {
   }
 
   componentDidMount() {
+    document.getElementById('newMessage').addEventListener('touchmove', (e) => {
+      e.preventDefault()
+    })
     setInterval(() => {
       this.props.getPosts();
     }, 3000);
@@ -87,8 +90,7 @@ class MessageForm extends Component {
   }
 
   postMessage() {
-    let msg = this.getMessage()
-    if (msg) {
+    if (this.state.message) {
       this.props.addPost(this.getMessage())
       this.setState({ message: '' })
     }
@@ -96,7 +98,7 @@ class MessageForm extends Component {
 
   render() {
     return (
-      <div className="message-form">
+      <div id="newMessage" className="message-form">
         <input id="messagetext"
           onChange={this.onChange}
           type="text"
