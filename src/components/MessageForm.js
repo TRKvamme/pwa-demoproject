@@ -9,7 +9,7 @@ class MessageForm extends Component {
     this.state = {
       message: ''
     };
-    if (window.Notification) {
+    if (window.Notification && Notification.permission !== 'granted' && Notification.permission !== 'denied') {
       Notification.requestPermission();
     }
     this.props.getPosts();
@@ -60,15 +60,29 @@ class MessageForm extends Component {
   }
 
   notify(e) {
-    if (window.Notification) {
+
+    if (!('Notification' in window)) {
+      console.log('This browser does not support notifications')
+    }
+
+    else if (Notification.permission === 'granted') {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.showNotification(e.sender, {
+          body: e.message,
+          icon: 'img/icons/android-chrome-192x192.png',
+          vibrate: [200],
+        });
+      });
+    }
+
+    else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (result) {
         if (result === 'granted') {
           navigator.serviceWorker.ready.then((registration) => {
-            registration.showNotification('sender', {
-              body: 'message',
+            registration.showNotification(e.sender, {
+              body: e.message,
               icon: 'img/icons/android-chrome-192x192.png',
               vibrate: [200],
-              tag: 'vibration-sample'
             });
           });
         }
