@@ -1,6 +1,6 @@
 # Progressive Web-app test
 
-Nothing special.
+Tiny messaging app made as a PWA.
 
 things used to create:
 create-react-app
