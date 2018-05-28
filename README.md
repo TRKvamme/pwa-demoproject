@@ -1,12 +1,5 @@
 # Progressive Web-app test
 
-Tiny messaging app made as a PWA.
+Tiny messaging app made as a Progressive Web App.
 
-things used to create:
-create-react-app
-redux
-idb
-service worker
-cache
-vibrate api
-local storage api
+Will not be updated in the forseeable future, and the backend is offline.
